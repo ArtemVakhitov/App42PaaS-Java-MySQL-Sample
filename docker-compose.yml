@@ -2,20 +2,20 @@ version: '3.1'
 
 services:
 
-  mysql:
-    container_name: mysql
+  db:
+    container_name: database
     image: mysql:5.5
-    hostname: mysql
+    hostname: database
     ports:
       - "3306:3306"
     restart: always
     volumes:
       - mysql_data:/var/lib/mysql
     environment:
-      MYSQL_USER: shephertz
-      MYSQL_PASSWORD: secret
-      MYSQL_DATABASE: app42paas
-      MYSQL_ROOT_PASSWORD: rootsecret
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: AppP@ssw0rd
+      MYSQL_DATABASE: app
+      MYSQL_ROOT_PASSWORD: RootP@ssw0rd
 
   tomcat:
     container_name: tomcat
@@ -25,10 +25,10 @@ services:
     ports:
       - "8080:8080"
     environment:
-      DB_USERNAME: shephertz
-      DB_PASSWORD: secret
-      DB_IP: mysql
-      DB_NAME: app42paas
+      DB_USERNAME: appuser
+      DB_PASSWORD: AppP@ssw0rd
+      DB_IP: database
+      DB_NAME: app
 
 volumes:
   mysql_data:
