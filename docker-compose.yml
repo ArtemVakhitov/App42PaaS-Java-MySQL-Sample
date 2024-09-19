@@ -12,9 +12,9 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     environment:
-      MYSQL_USER: appuser
+      MYSQL_USER: shephertz
       MYSQL_PASSWORD: AppP@ssw0rd
-      MYSQL_DATABASE: app
+      MYSQL_DATABASE: app42paas
       MYSQL_ROOT_PASSWORD: RootP@ssw0rd
 
   tomcat:
@@ -25,10 +25,10 @@ services:
     ports:
       - "8080:8080"
     environment:
-      DB_USERNAME: appuser
+      DB_USERNAME: shephertz
       DB_PASSWORD: AppP@ssw0rd
       DB_IP: database
-      DB_NAME: app
+      DB_NAME: app42paas
 
 volumes:
   mysql_data:
